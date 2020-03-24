@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: logger-deployment
+  namespace: logger
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: logger-app
+    spec:
+      containers:
+        - image: {ECR_IMAGE_LOCATION}
+          imagePullPolicy: Always
+          name: logger-app
+          ports:
+            - containerPort: 8080
