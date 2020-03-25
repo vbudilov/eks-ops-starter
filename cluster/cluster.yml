@@ -13,6 +13,13 @@ availabilityZones:
   - us-east-1c
   - us-east-1d
 
+nodeGroups:
+  - name: ng-1
+    instanceType: m5.large
+    desiredCapacity: 2
+    ssh:
+      allow: true 
+
 fargateProfiles:
   - name: fp-dev
     selectors:
